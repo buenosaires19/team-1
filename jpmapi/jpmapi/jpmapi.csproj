@@ -211,6 +211,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DTOS\CareerDTO.cs" />
     <Compile Include="DTOS\CategoryWithCareersDTO.cs" />
+    <Compile Include="DTOS\FacultyDTO.cs" />
     <Compile Include="DTOS\UserDTO.cs" />
     <Compile Include="faculties.cs">
       <DependentUpon>JPModel.tt</DependentUpon>
