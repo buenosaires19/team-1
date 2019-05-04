@@ -34,6 +34,7 @@ namespace jpmapi.Services
                     questionToAdd.question = question.question;
                     questionToAdd.rating = (int) question.rating;
                     questionToAdd.replies = new List<ReplyDTO>();
+                   
 
                     foreach (var reply in question.replies)
                     {
@@ -42,7 +43,7 @@ namespace jpmapi.Services
                         replyToAdd.autor = reply.profesionals.profesional_name;
                         replyToAdd.autorImage = reply.profesionals.image;
                         replyToAdd.reply = reply.content;
-
+                        replyToAdd.autorCompany = reply.profesionals.company;
                         questionToAdd.replies.Add(replyToAdd);
                     }
 
