@@ -32,13 +32,25 @@ namespace jpmapi.Services
                     questionToAdd.autorImage = question.users.image;
                     questionToAdd.autor = question.users.name;
                     questionToAdd.question = question.question;
-                    questionToAdd.rating = question.rating;
+                    questionToAdd.rating = (int) question.rating;
                     questionToAdd.replies = new List<ReplyDTO>();
 
+                    foreach (var reply in question.replies)
+                    {
+                        var replyToAdd = new ReplyDTO();
+
+                        replyToAdd.autor = reply.profesionals.profesional_name;
+                        replyToAdd.autorImage = reply.profesionals.image;
+                        replyToAdd.reply = reply.content;
+
+                        questionToAdd.replies.Add(replyToAdd);
+                    }
 
                     response.questions.Add(questionToAdd);
                 }
             }
+
+            return response;
         }
         public List<CategoryWithCareersDTO> GetCareersWithCategories()
         {
