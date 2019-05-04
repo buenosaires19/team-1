@@ -19,6 +19,7 @@ namespace jpmapi.Services
                     responseToAdd.image = test.image;
                     responseToAdd.test_id = test.test_id;
                     responseToAdd.type = test.type;
+                    response.Add(responseToAdd);
                 }
             }
 
