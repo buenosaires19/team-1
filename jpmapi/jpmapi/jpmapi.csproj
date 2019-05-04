@@ -203,6 +203,9 @@
     <Compile Include="Controllers\CareerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="DTOS\FullCareerDataDTO.cs" />
+    <Compile Include="DTOS\QuestionDTO.cs" />
+    <Compile Include="DTOS\ReplyDTO.cs" />
     <Compile Include="DTOS\TestDTO.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
