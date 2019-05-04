@@ -1,4 +1,5 @@
 import React from "react";
+import { Route } from 'react-router-dom'
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -8,8 +9,8 @@ import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
 // core components
 import Header from "components/Header/Header.jsx";
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
-import Footer from "components/Footer/Footer.jsx";
+// import HeaderLinks from "components/Header/HeaderLinks.jsx";
+// import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
@@ -47,8 +48,8 @@ class LoginPage extends React.Component {
         <Header
           absolute
           color="transparent"
-          brand="Material Kit React"
-          rightLinks={<HeaderLinks />}
+          brand="NextStep"
+          // rightLinks={<HeaderLinks />}
           {...rest}
         />
         <div
@@ -64,39 +65,10 @@ class LoginPage extends React.Component {
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
                   <form className={classes.form}>
-                    <CardHeader color="primary" className={classes.cardHeader}>
+                    <CardHeader color="success" className={classes.cardHeader}>
                       <h4>Login</h4>
-                      <div className={classes.socialLine}>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-twitter"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-facebook"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-google-plus-g"} />
-                        </Button>
-                      </div>
                     </CardHeader>
-                    <p className={classes.divider}>Or Be Classical</p>
+                    {/* <p className={classes.divider}>Or Be Classical</p> */}
                     <CardBody>
                       <CustomInput
                         labelText="First Name..."
@@ -147,16 +119,52 @@ class LoginPage extends React.Component {
                       />
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      <Button simple color="primary" size="lg">
-                        Get started
-                      </Button>
+                      <Route render={({ history }) => (
+                          <Button 
+                            simple 
+                            color="success"
+                            size="lg"
+                            onClick={() => { history.push('/landing-page') }}
+                          >
+                          Get started
+                        </Button>
+                    )} />
                     </CardFooter>
                   </form>
+                  <div className={classes.socialLine}>
+                    <Button
+                      justIcon
+                      href="#pablo"
+                      target="_blank"
+                      color="transparent"
+                      onClick={e => e.preventDefault()}
+                    >
+                      <i className={"fab fa-twitter"} />
+                    </Button>
+                    <Button
+                      justIcon
+                      href="#pablo"
+                      target="_blank"
+                      color="transparent"
+                      onClick={e => e.preventDefault()}
+                    >
+                      <i className={"fab fa-facebook"} />
+                    </Button>
+                    <Button
+                      justIcon
+                      href="#pablo"
+                      target="_blank"
+                      color="transparent"
+                      onClick={e => e.preventDefault()}
+                    >
+                      <i className={"fab fa-google-plus-g"} />
+                    </Button>
+                  </div>
                 </Card>
               </GridItem>
             </GridContainer>
           </div>
-          <Footer whiteFont />
+          {/* <Footer whiteFont /> */}
         </div>
       </div>
     );
