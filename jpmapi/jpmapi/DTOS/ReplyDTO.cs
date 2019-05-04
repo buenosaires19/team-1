@@ -10,5 +10,6 @@ namespace jpmapi.DTOS
         public string autor { get; set; }
         public string autorImage { get; set; }
         public string reply { get; set; }
+        public string autorCompany { get; set; }
     }
 }
