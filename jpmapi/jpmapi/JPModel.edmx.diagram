@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="740348c9897440008eee7fb1758c52ad" Name="Diagram1">
+        <EntityTypeShape EntityType="jpmModel.career_categories" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="jpmModel.career_faculty" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="jpmModel.careers" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jpmModel.faculties" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="jpmModel.photos" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="jpmModel.profesionals" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="jpmModel.questions" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="jpmModel.replies" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jpmModel.user_career" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="jpmModel.user_token" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="jpmModel.users" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jpmModel.videos" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="jpmModel.FK__careers__career___5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="jpmModel.FK__career_fa__caree__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="jpmModel.FK__career_fa__facul__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="jpmModel.FK__profesion__caree__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="jpmModel.FK__questions__caree__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="jpmModel.FK__user_care__caree__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="jpmModel.FK__photos__profesio__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="jpmModel.FK__replies__profesi__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="jpmModel.FK__questions__user___72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="jpmModel.FK__replies__questio__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="jpmModel.FK__user_care__user___68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="jpmModel.FK__user_toke__user___6C190EBB" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
