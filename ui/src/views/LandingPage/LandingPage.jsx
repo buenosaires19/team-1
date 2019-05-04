@@ -58,7 +58,7 @@ class LandingPage extends React.Component {
                   size="lg"
                   href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
                 >
                   <i className="fas fa-play" />
                   Watch video
