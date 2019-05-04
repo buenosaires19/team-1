@@ -13,7 +13,7 @@ namespace jpmapi.DTOS
         public string info { get; set; }
         public string image { get; set; }
        
-        public List<questions> questions { get; set; }
+        public List<QuestionDTO> questions { get; set; }
         public List<FacultyDTO> faculties { get; set; }
     }
 }

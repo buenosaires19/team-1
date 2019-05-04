@@ -15,5 +15,12 @@ namespace jpmapi.Controllers
         {
             return Json(new CareerServices().GetCareersWithCategories());
         }
+
+        [HttpGet]
+        public IHttpActionResult CareerData(int id)
+        {
+            return Json(new CareerServices().GetCareerData(id));
+        }
+
     }
 }

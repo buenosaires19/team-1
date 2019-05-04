@@ -8,6 +8,38 @@ namespace jpmapi.Services
 {
     public class CareerServices
     {
+        public FullCareerDataDTO GetCareerData(int id)
+        {
+            FullCareerDataDTO response = new FullCareerDataDTO();
+            using (var entities = new jpmEntities())
+            {
+                var dbResponse = entities.careers.SingleOrDefault(t => t.career_id == id);
+                response.career_id = dbResponse.career_id;
+                response.career_name = dbResponse.career_name;
+                response.categoryName = dbResponse.career_categories.category_name;
+                response.image = dbResponse.image;
+                response.info = dbResponse.info;
+                response.faculties = new List<FacultyDTO>();
+                foreach (var faculty in response.faculties)
+                {
+                    response.faculties.Add(new FacultyDTO() {faculty_name = faculty.faculty_name,image = faculty.image});
+                }
+                response.questions = new List<QuestionDTO>();
+                foreach (var question in dbResponse.questions)
+                {
+                    var questionToAdd = new QuestionDTO();
+
+                    questionToAdd.autorImage = question.users.image;
+                    questionToAdd.autor = question.users.name;
+                    questionToAdd.question = question.question;
+                    questionToAdd.rating = question.rating;
+                    questionToAdd.replies = new List<ReplyDTO>();
+
+
+                    response.questions.Add(questionToAdd);
+                }
+            }
+        }
         public List<CategoryWithCareersDTO> GetCareersWithCategories()
         {
             List<CategoryWithCareersDTO> response = new List<CategoryWithCareersDTO>();
