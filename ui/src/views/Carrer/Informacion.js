@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Player } from 'video-react';
-import video  from '../../videos/carrera.mp4'
+import video  from '../videos/carrera.mp4'
 export default class Informacion extends Component {
   render() {
 

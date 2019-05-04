@@ -31,7 +31,7 @@ function HeaderLinks({ ...props }) {
           className={classes.navLink}
         >
           <Link to="/test" className={classes.dropdownLink}>
-              Test Vocacional 
+              Test 
           </Link>
         </Button>
       </ListItem>
@@ -54,17 +54,6 @@ function HeaderLinks({ ...props }) {
         >
           <Link to="/socio-virtual" className={classes.dropdownLink}>
               Socio Virtual
-          </Link>
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-        >
-          <Link to="/test" className={classes.dropdownLink}>
-              Nuestros Numeros
           </Link>
         </Button>
       </ListItem>

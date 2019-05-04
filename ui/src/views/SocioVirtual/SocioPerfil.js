@@ -17,23 +17,22 @@ import GridItem from "components/Grid/GridItem.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import NavPills from "components/NavPills/NavPills.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
-
-import profile from "assets/img/faces/christian.jpg";
-
+import {API} from '../../API/API.js';
 import studio1 from "assets/img/examples/studio-1.jpg";
-import studio2 from "assets/img/examples/studio-2.jpg";
-import studio3 from "assets/img/examples/studio-3.jpg";
-import studio4 from "assets/img/examples/studio-4.jpg";
-import studio5 from "assets/img/examples/studio-5.jpg";
-import work1 from "assets/img/examples/olu-eletu.jpg";
-import work2 from "assets/img/examples/clem-onojeghuo.jpg";
-import work3 from "assets/img/examples/cynthia-del-rio.jpg";
-import work4 from "assets/img/examples/mariya-georgieva.jpg";
-import work5 from "assets/img/examples/clem-onojegaw.jpg";
-
+import studio2 from "../videos/kapoLaburando.jpeg";
+import perfil from '../videos/kapo2.jpeg'
+import videoPerfil from '../videos/perfil.mp4'
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
 
 class ProfilePage extends React.Component {
+  state = {
+    data: false
+  }
+  componentDidMount = async () => {
+      const data = await API.getData(`/Professional/GetProfessionalsForCareer/3`)
+      this.setState({data: data},() => console.log(this.state) )
+
+  }
   render() {
     const { classes, ...rest } = this.props;
     const imageClasses = classNames(
@@ -46,7 +45,7 @@ class ProfilePage extends React.Component {
       <div>
         <Header
           color="transparent"
-          brand="Material Kit React"
+          brand="NextStep"
           rightLinks={<HeaderLinks />}
           fixed
           changeColorOnScroll={{
@@ -63,11 +62,17 @@ class ProfilePage extends React.Component {
                 <GridItem xs={12} sm={12} md={6}>
                   <div className={classes.profile}>
                     <div>
-                      <img src={profile} alt="..." className={imageClasses} />
+                      <img src={perfil} alt="..." className={imageClasses} />
                     </div>
                     <div className={classes.name}>
-                      <h3 className={classes.title}>Christian Louboutin</h3>
-                      <h6>DESIGNER</h6>
+                    {
+                      this.state.data.length > 0 &&
+                      <h3 className={classes.title}>{this.state.data[0].profesional_name}</h3>
+                    }
+                    {
+                      this.state.data.length > 0 &&
+                      <h6>{this.state.data[0].career}</h6>
+                    } 
                       <Button justIcon link className={classes.margin5}>
                         <i className={"fab fa-twitter"} />
                       </Button>
@@ -82,13 +87,11 @@ class ProfilePage extends React.Component {
                 </GridItem>
               </GridContainer>
               <div className={classes.description}>
-                <p>
-                  An artist of considerable range, Chet Faker — the name taken
-                  by Melbourne-raised, Brooklyn-based Nick Murphy — writes,
-                  performs and records all of his own music, giving it a warm,
-                  intimate feel with a solid groove structure.{" "}
-                </p>
-              </div>
+              {
+                      this.state.data.length > 0 &&
+                      this.state.data[0].company
+                    } 
+                  </div>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
                   <NavPills
@@ -100,26 +103,10 @@ class ProfilePage extends React.Component {
                         tabContent: (
                           <GridContainer justify="center">
                             <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={studio1}
-                                className={navImageClasses}
-                              />
+
                               <img
                                 alt="..."
                                 src={studio2}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={studio5}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio4}
                                 className={navImageClasses}
                               />
                             </GridItem>
@@ -132,7 +119,7 @@ class ProfilePage extends React.Component {
                         <Player
                           playsInline
                           poster="/assets/poster.png"
-                          src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                          src={videoPerfil}
                         />
                         )
                       }

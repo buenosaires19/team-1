@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-
+import perfil from '../videos/kapo.JPG'
 const styles = theme => ({
   root: {
     width: '100%',
@@ -22,21 +22,21 @@ const styles = theme => ({
 
 function AlignItemsList(props) {
   const { classes } = props;
+  console.log(props.data)
   return (
     <List className={classes.root}>
       <Route render={({ history }) => (
-      <ListItem button alignItems="flex-start" onClick={() => { history.push('/socio-perfil','jonas') }}>
+      <ListItem button alignItems="flex-start" onClick={() => { history.push('/socio-perfil',props.data[0].profesional_id) }}>
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <Avatar alt="Remy Sharp" src={perfil}/>
         </ListItemAvatar>
         <ListItemText
-          primary="Brunch this weekend?"
+          primary={props.data[0].career}
           secondary={
             <React.Fragment>
               <Typography component="span" className={classes.inline} color="textPrimary">
-                Ali Connors
+                {props.data[0].profesional_name} {props.data[0].company}
               </Typography>
-              {" — I'll be in your neighborhood doing errands this…"}
             </React.Fragment>
           }
         />

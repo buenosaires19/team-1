@@ -14,15 +14,16 @@ import Carrer from "views/Carrer/Carrer.js"
 import SocioVirtual from "views/SocioVirtual/SocioVirtual.js"
 import SocioPerfil from "views/SocioVirtual/SocioPerfil.js"
 
+import Test from "views/Test/Test.jsx";
 
 var hist = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
+      <Route path="/test" component={Test} />
       <Route path="/landing-page" component={LandingPage} />
       <Route path="/socio-perfil" component={SocioPerfil} />
-
       <Route path="/socio-virtual" component={SocioVirtual} />
       <Route path="/carrer" component={Carrer} />
       <Route path="/profile-page" component={ProfilePage} />

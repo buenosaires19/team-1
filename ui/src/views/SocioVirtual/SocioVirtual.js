@@ -15,12 +15,16 @@ import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
 import SocioItem from "./SocioItem.js";
-
+import {API} from '../../API/API.js';
 class ProfilePage extends React.Component {
-    componentDidMount(){
-        // fetch
-        console.log(this.props.history.location.state)
-    }
+  state = {
+    data: false
+  }
+  componentDidMount = async () => {
+      const data = await API.getData(`/Professional/GetProfessionalsForCareer/3`)
+      this.setState({data: data},() => console.log(this.state) )
+
+  }
   render() {
     const { classes, ...rest } = this.props;
     return (
@@ -50,7 +54,12 @@ class ProfilePage extends React.Component {
             <div className={classes.container}>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
-                  <SocioItem/>
+                {
+                  this.state.data &&
+                  <SocioItem
+                    data={this.state.data}
+                  />
+                }
                 </GridItem>
               </GridContainer>
             </div>
