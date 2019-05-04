@@ -20,10 +20,11 @@ namespace jpmapi.Services
                 response.image = dbResponse.image;
                 response.info = dbResponse.info;
                 response.faculties = new List<FacultyDTO>();
-                foreach (var faculty in response.faculties)
+                foreach (var faculty in dbResponse.career_faculty)
                 {
-                    response.faculties.Add(new FacultyDTO() {faculty_name = faculty.faculty_name,image = faculty.image});
+                    response.faculties.Add(new FacultyDTO() {faculty_name = faculty.faculties.faculty_name,image = faculty.faculties.image });
                 }
+
                 response.questions = new List<QuestionDTO>();
                 foreach (var question in dbResponse.questions)
                 {
