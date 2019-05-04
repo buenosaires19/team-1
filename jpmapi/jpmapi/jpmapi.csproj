@@ -202,6 +202,8 @@
     </Compile>
     <Compile Include="Controllers\CareerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\TestDTO.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DTOS\CareerDTO.cs" />
@@ -242,7 +244,11 @@
       <DependentUpon>JPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\CareerServices.cs" />
+    <Compile Include="Services\TestServices.cs" />
     <Compile Include="Services\UserServices.cs" />
+    <Compile Include="tests.cs">
+      <DependentUpon>JPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="users.cs">
       <DependentUpon>JPModel.tt</DependentUpon>
     </Compile>
