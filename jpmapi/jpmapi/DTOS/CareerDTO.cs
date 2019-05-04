@@ -11,6 +11,8 @@ namespace jpmapi.DTOS
         public string career_name { get; set; }
         public Nullable<int> career_category_id { get; set; }
         public string info { get; set; }
+        public string image { get; set; }
+
 
     }
 }

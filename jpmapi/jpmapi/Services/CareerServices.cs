@@ -28,6 +28,7 @@ namespace jpmapi.Services
                         careerToAdd.career_id = career.career_id;
                         careerToAdd.career_name = career.career_name;
                         careerToAdd.info = career.info;
+                        careerToAdd.image = career.image;
                         newToAdd.careers.Add(careerToAdd);
                     }
                     response.Add(newToAdd);
