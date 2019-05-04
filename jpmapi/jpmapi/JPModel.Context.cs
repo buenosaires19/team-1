@@ -37,5 +37,6 @@ namespace jpmapi
         public virtual DbSet<user_token> user_token { get; set; }
         public virtual DbSet<users> users { get; set; }
         public virtual DbSet<videos> videos { get; set; }
+        public virtual DbSet<tests> tests { get; set; }
     }
 }

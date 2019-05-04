@@ -25,6 +25,7 @@ namespace jpmapi
         public string question { get; set; }
         public Nullable<int> user_id { get; set; }
         public Nullable<System.DateTime> date { get; set; }
+        public Nullable<int> rating { get; set; }
     
         public virtual careers careers { get; set; }
         public virtual users users { get; set; }

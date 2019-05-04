@@ -29,6 +29,7 @@
         <AssociationConnector Association="jpmModel.FK__replies__questio__03F0984C" ManuallyRouted="false" />
         <AssociationConnector Association="jpmModel.FK__user_care__user___68487DD7" ManuallyRouted="false" />
         <AssociationConnector Association="jpmModel.FK__user_toke__user___6C190EBB" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="jpmModel.tests" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
