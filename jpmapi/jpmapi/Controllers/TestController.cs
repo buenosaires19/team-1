@@ -12,7 +12,7 @@ namespace jpmapi.Controllers
         [HttpGet]
         public IHttpActionResult Retrieve()
         {
-
+            return Json(new TestController().Retrieve());
         }
     }
 }
