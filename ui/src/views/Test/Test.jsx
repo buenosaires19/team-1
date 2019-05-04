@@ -5,26 +5,43 @@ import Card from '@material-ui/core/CardMedia';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-import img1 from "../../assets/img/faces/avatar.jpg";
-import img2 from "../../assets/img/examples/studio-2.jpg"
-import img3 from "../../assets/img/examples/studio-3.jpg"
-import img4 from "../../assets/img/examples/studio-4.jpg"
-import img5 from "../../assets/img/examples/studio-5.jpg"
+import { Redirect } from 'react-router-dom';
+import withStyles from "@material-ui/core/styles/withStyles";
+import Header from "components/Header/Header.jsx";
+import Footer from "components/Footer/Footer.jsx";
+import HeaderLinks from "components/Header/HeaderLinks.jsx";
+import Parallax from "components/Parallax/Parallax.jsx";
+import classNames from "classnames";
+import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
+
+import img1 from "../../assets/img/examples/cem.jpg"
+import img2 from "../../assets/img/examples/cco.jpg"
+import img3 from "../../assets/img/examples/ce.jpg"
+import img4 from "../../assets/img/examples/cs.jpg"
+import img5 from "../../assets/img/examples/ing.jpg"
+
 
 class Test extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgArray: [{ img: img1, type: "art" }, { img: img2, type: "economics" }, { img: img3, type: "engineering" }, { img: img4, type: "humanities" }, { img: img5, type: "art" }],
+      imgArray: [{ img: img1, type: "cem" }, { img: img2, type: "cco" }, { img: img3, type: "ce" }, { img: img4, type: "cs" }, { img: img5, type: "ing" }],
       index: 0,
       categories:
       {
-        art: 0,
-        economics: 0,
-        engineering: 0,
-        humanities: 0,
+        cem: 0,
+        cco: 0,
+        ce: 0,
+        cs: 0,
+        ing: 0,
       },
     };
+
+    // Ciencias Empresariales
+    // Ciencias de la Comunicación
+    // Ciencias Economicas
+    // Ciencias Sociales
+    // Ingenieria
 
     this.yesFunc = this.yesFunc.bind(this);
     this.noFunc = this.noFunc.bind(this);
@@ -32,76 +49,151 @@ class Test extends React.Component {
 
   increase() {
     switch (this.state.imgArray[this.state.index].type) {
-      case "art":
-        this.setState({ categories: art = this.state.categories.art + 1 })
+      case "cem":
+        this.setState({ categories: { cem: this.state.categories.cem + 1, cco: this.state.categories.cco, ce: this.state.categories.ce, cs: this.state.categories.cs, ing: this.state.categories.ing } })
         break;
-      case "economics":
-        this.setState({ categories: economics = this.state.categories.economics + 1 })
+      case "cco":
+        this.setState({ categories: { cem: this.state.categories.cem, cco: this.state.categories.cco + 1, ce: this.state.categories.ce, cs: this.state.categories.cs, ing: this.state.categories.ing } })
         break;
-      case "engineering":
-        this.setState({ categories: engineering = this.state.categories.engineering + 1 })
+      case "ce":
+        this.setState({ categories: { cem: this.state.categories.cem, cco: this.state.categories.cco, ce: this.state.categories.ce + 1, cs: this.state.categories.cs, ing: this.state.categories.ing } })
         break;
-      case "humanities":
-        this.setState({ categories: humanities = this.state.categories.humanities + 1 })
+      case "cs":
+        this.setState({ categories: { cem: this.state.categories.cem, cco: this.state.categories.cco, ce: this.state.categories.ce, cs: this.state.categories.cs + 1, ing: this.state.categories.ing } })
         break;
+      case "ing":
+        this.setState({ categories: { cem: this.state.categories.cem, cco: this.state.categories.cco, ce: this.state.categories.ce, cs: this.state.categories.cs, ing: this.state.categories.ing + 1 } })
+        break;
+      default:
+    }
+  }
+
+  decrease() {
+    switch (this.state.imgArray[this.state.index].type) {
+      case "cem":
+        this.setState({ categories: { cem: this.state.categories.cem - 1, cco: this.state.categories.cco, ce: this.state.categories.ce, cs: this.state.categories.cs, ing: this.state.categories.ing } })
+        break;
+      case "cco":
+        this.setState({ categories: { cem: this.state.categories.cem, cco: this.state.categories.cco - 1, ce: this.state.categories.ce, cs: this.state.categories.cs, ing: this.state.categories.ing } })
+        break;
+      case "ce":
+        this.setState({ categories: { cem: this.state.categories.cem, cco: this.state.categories.cco, ce: this.state.categories.ce - 1, cs: this.state.categories.cs, ing: this.state.categories.ing } })
+        break;
+      case "cs":
+        this.setState({ categories: { cem: this.state.categories.cem, cco: this.state.categories.cco, ce: this.state.categories.ce, cs: this.state.categories.cs - 1, ing: this.state.categories.ing } })
+        break;
+      case "ing":
+        this.setState({ categories: { cem: this.state.categories.cem, cco: this.state.categories.cco, ce: this.state.categories.ce, cs: this.state.categories.cs, ing: this.state.categories.ing - 1 } })
+        break;
+      default:
     }
   }
 
   yesFunc() {
     this.increase()
-
-    if (this.state.index < this.state.imgArray.length - 1) {
-      this.setState({ index: this.state.index + 1 }, () => {
-        console.log("arrlgt", this.state.imgArray.length);
-        console.log("index", this.state.index);
-        console.log("index", this.state.categories);
-      })
-    }
+    this.setState({ index: this.state.index + 1 }, () => {
+      console.log("CATEGORIES: ", this.state.categories);
+    })
   }
 
   noFunc() {
-    this.increase()
+    this.decrease();
+    this.setState({ index: this.state.index + 1 }, () => {
+      console.log("CATEGORIES: ", this.state.categories);
 
-    if (this.state.index < this.state.imgArray.length - 1) {
-      this.setState({ index: this.state.index + 1 }, () => {
-        console.log("arrlgt", this.state.imgArray.length);
-        console.log("index", this.state.index);
-        console.log("index", this.state.categories);
-      })
-    }
+    })
   }
 
   render() {
-    return (
-      <div>
-        <div>
-          <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={12}>
-              <h1>Vocational Test</h1>
-            </GridItem>
-          </GridContainer>
-          <GridContainer justify="center">
-            <GridItem xs={4} sm={4} md={4}>
-              <Card style={{ background: "white", height: "600px", width: "400px", padding: "50px", margin: "80px" }}>
-                <CardMedia style={{ height: "400px", width: "300px" }} image={this.state.imgArray[this.state.index].img} />
-                <CardContent>
-                  <GridContainer style={{ margin: "30px" }} justify="center">
-                    <GridItem xs={6} sm={6} md={6}>
-                      <Button style={{ height: "60px", width: "80px", background: "red", fontSize: "20px" }} onClick={this.noFunc} variant="contained" color="primary">NO</Button>
-                    </GridItem>
-                    <GridItem xs={6} sm={6} md={6}>
-                      <Button style={{ height: "60px", width: "80px", background: "green", fontSize: "20px" }} onClick={this.yesFunc} variant="contained" color="primary">SI</Button>
-                    </GridItem>
-                  </GridContainer>
-                </CardContent>
-              </Card>
-            </GridItem>
-          </GridContainer>
-
-        </div>
-      </div>
+    const { classes, ...rest } = this.props;
+    const imageClasses = classNames(
+      classes.imgRaised,
+      classes.imgRoundedCircle,
+      classes.imgFluid
     );
+    // const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+
+    if (this.state.index < this.state.imgArray.length) {
+      return (
+        <div className={classNames(classes.main, classes.mainRaised)}>
+          <Header
+            color="transparent"
+            brand="Material Kit React"
+            rightLinks={<HeaderLinks />}
+            fixed
+            changeColorOnScroll={{
+              height: 200,
+              color: "white"
+            }}
+            {...rest}
+          />
+          <Parallax small filter image={require("assets/img/profile-bg.jpg")} />
+          <div className={classes.profile}>
+            <GridContainer justify="center">
+              <GridItem xs={12} sm={12} md={12}>
+                <h1>Test Vocacional</h1>
+              </GridItem>
+            </GridContainer>
+            <GridContainer justify="center">
+              <GridItem xs={4} sm={4} md={4}>
+                <Card image="" style={{ background: "white", height: "600px", width: "400px", padding: "50px", margin: "80px" }}>
+                  <CardMedia style={{ height: "400px", width: "300px" }} image={this.state.imgArray[this.state.index].img} />
+                  <CardContent>
+                    <GridContainer style={{ margin: "30px" }}>
+                      <GridItem xs={6} sm={6} md={6}>
+                        <Button style={{ height: "60px", width: "100%", background: "red", fontSize: "20px" }} onClick={this.noFunc} variant="contained" color="primary">✘</Button>
+                      </GridItem>
+                      <GridItem xs={6} sm={6} md={6}>
+                        <Button style={{ height: "60px", width: "100%", background: "green", fontSize: "20px" }} onClick={this.yesFunc} variant="contained" color="primary">✔</Button>
+                      </GridItem>
+                    </GridContainer>
+                  </CardContent>
+                </Card>
+              </GridItem>
+            </GridContainer>
+          </div>
+          <div className={classNames(classes.main, classes.mainRaised)}>
+            <div>
+              <div className={classes.container}>
+              </div>
+            </div>
+          </div>
+          <Footer />
+        </div>
+      )
+        ;
+    } else {
+      let max = [{ max: 0, type: "default" }]
+      let interes = {
+        cem: 'Ciencias Empresariales',
+        cco: 'Ciencias de la Comunicación',
+        ce: 'Ciencias Economicas',
+        cs: 'Ciencias Sociales',
+        ing: 'Ingenieria',
+      }
+
+      for (var property in this.state.categories) {
+        console.log("LOG", property, " ", this.state.categories[property]);
+        if (this.state.categories[property] > max[0].max) {
+          max = [];
+          max.push({ max: this.state.categories[property], type: property });
+        } else if (this.state.categories[property] === max[0].max) {
+          max.push({ max: this.state.categories[property], type: property });
+        }
+      }
+
+      let rnd = Math.floor(Math.random() * (max.length - 1))
+      console.log('random', rnd);
+      console.log('MAX LGT', max.length);
+      let selected = max[rnd].type
+
+      return (
+        <div>
+              <Redirect to="/carrer/3"/>
+        </div>
+      )
+    }
   }
 }
 
-export default Test;
+export default withStyles(profilePageStyle)(Test);
