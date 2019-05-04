@@ -19,6 +19,7 @@ namespace jpmapi
         {
             this.photos = new HashSet<photos>();
             this.replies = new HashSet<replies>();
+            this.videos = new HashSet<videos>();
         }
     
         public int profesional_id { get; set; }
@@ -32,5 +33,7 @@ namespace jpmapi
         public virtual ICollection<photos> photos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<replies> replies { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<videos> videos { get; set; }
     }
 }

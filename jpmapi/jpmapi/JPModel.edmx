@@ -267,6 +267,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__videos__profesio__0C85DE4D">
+          <End Role="profesionals" Type="Self.profesionals" Multiplicity="0..1" />
+          <End Role="videos" Type="Self.videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profesionals">
+              <PropertyRef Name="profesional_id" />
+            </Principal>
+            <Dependent Role="videos">
+              <PropertyRef Name="profesional_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="jpmModelStoreContainer">
           <EntitySet Name="career_categories" EntityType="Self.career_categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="career_faculty" EntityType="Self.career_faculty" Schema="dbo" store:Type="Tables" />
@@ -328,6 +340,10 @@
           <AssociationSet Name="FK__user_toke__user___6C190EBB" Association="Self.FK__user_toke__user___6C190EBB">
             <End Role="users" EntitySet="users" />
             <End Role="user_token" EntitySet="user_token" />
+          </AssociationSet>
+          <AssociationSet Name="FK__videos__profesio__0C85DE4D" Association="Self.FK__videos__profesio__0C85DE4D">
+            <End Role="profesionals" EntitySet="profesionals" />
+            <End Role="videos" EntitySet="videos" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -399,6 +415,7 @@
           <NavigationProperty Name="careers" Relationship="Self.FK__profesion__caree__6EF57B66" FromRole="profesionals" ToRole="careers" />
           <NavigationProperty Name="photos" Relationship="Self.FK__photos__profesio__07C12930" FromRole="profesionals" ToRole="photos" />
           <NavigationProperty Name="replies" Relationship="Self.FK__replies__profesi__04E4BC85" FromRole="profesionals" ToRole="replies" />
+          <NavigationProperty Name="videos" Relationship="jpmModel.FK__videos__profesio__0C85DE4D" FromRole="profesionals" ToRole="videos" />
         </EntityType>
         <EntityType Name="questions">
           <Key>
@@ -467,6 +484,7 @@
           <Property Name="date" Type="DateTime" Precision="3" />
           <Property Name="profesional_id" Type="Int32" />
           <Property Name="photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="profesionals" Relationship="jpmModel.FK__videos__profesio__0C85DE4D" FromRole="videos" ToRole="profesionals" />
         </EntityType>
         <Association Name="FK__careers__career___5FB337D6">
           <End Role="career_categories" Type="Self.career_categories" Multiplicity="0..1" />
@@ -674,6 +692,10 @@
             <End Role="user_token" EntitySet="user_token" />
           </AssociationSet>
           <EntitySet Name="tests" EntityType="jpmModel.tests" />
+          <AssociationSet Name="FK__videos__profesio__0C85DE4D" Association="jpmModel.FK__videos__profesio__0C85DE4D">
+            <End Role="profesionals" EntitySet="profesionals" />
+            <End Role="videos" EntitySet="videos" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tests">
           <Key>
@@ -683,6 +705,18 @@
           <Property Name="image" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
           <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
+        <Association Name="FK__videos__profesio__0C85DE4D">
+          <End Type="jpmModel.profesionals" Role="profesionals" Multiplicity="0..1" />
+          <End Type="jpmModel.videos" Role="videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profesionals">
+              <PropertyRef Name="profesional_id" />
+            </Principal>
+            <Dependent Role="videos">
+              <PropertyRef Name="profesional_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

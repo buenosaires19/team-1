@@ -30,6 +30,7 @@
         <AssociationConnector Association="jpmModel.FK__user_care__user___68487DD7" ManuallyRouted="false" />
         <AssociationConnector Association="jpmModel.FK__user_toke__user___6C190EBB" ManuallyRouted="false" />
         <EntityTypeShape EntityType="jpmModel.tests" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="jpmModel.FK__videos__profesio__0C85DE4D" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

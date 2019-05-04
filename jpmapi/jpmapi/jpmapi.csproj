@@ -205,16 +205,18 @@
     <Compile Include="Controllers\ProfessionalController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="DTOS\FullCareerDataDTO.cs" />
+    <Compile Include="DTOS\PhotoDTO.cs" />
     <Compile Include="DTOS\ProfessionalDTO.cs" />
+    <Compile Include="DTOS\ProfessionalFullDetailDTO.cs" />
     <Compile Include="DTOS\QuestionDTO.cs" />
     <Compile Include="DTOS\ReplyDTO.cs" />
     <Compile Include="DTOS\TestDTO.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DTOS\CareerDTO.cs" />
     <Compile Include="DTOS\CategoryWithCareersDTO.cs" />
     <Compile Include="DTOS\FacultyDTO.cs" />
     <Compile Include="DTOS\UserDTO.cs" />
+    <Compile Include="DTOS\VideoDTO.cs" />
     <Compile Include="faculties.cs">
       <DependentUpon>JPModel.tt</DependentUpon>
     </Compile>
@@ -250,6 +252,7 @@
       <DependentUpon>JPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\CareerServices.cs" />
+    <Compile Include="Services\ProfessionalServices.cs" />
     <Compile Include="Services\TestServices.cs" />
     <Compile Include="Services\UserServices.cs" />
     <Compile Include="tests.cs">
